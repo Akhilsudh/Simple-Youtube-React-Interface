@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
+import _ from 'lodash';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail'
@@ -32,9 +33,10 @@ class App extends Component {
 	}
 	//make sure there are no NULL values in the props
 	render() {
+		const throttledVideoSearch = _.debounce((term) => { this.videoSearch(term)}, 500);
 		return (
 			<div>
-				<SearchBar onSearchTermChanged={term => this.videoSearch(term)} />
+				<SearchBar onSearchTermChanged={throttledVideoSearch} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList
 					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
