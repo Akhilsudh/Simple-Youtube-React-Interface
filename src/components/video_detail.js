@@ -17,8 +17,8 @@ const VideoDetail = (props) => {
         </iframe>
       </div>
       <div className="details">
-        <div>{video.snippet.title}</div>
-        <div>{video.snippet.description}</div>
+        <h1>{video.snippet.title}</h1>
+        <p>{video.snippet.description}</p>
       </div>
     </div>
   );

@@ -19,20 +19,26 @@ class App extends Component {
 			};
 
 			//Youtube API called here
-			YTSearch({ key: API_KEY, term: 'surfboards'}, (data) => {
-				this.setState({
-					videos: data,
-					selectedVideo: data[0]
-				});
+			this.videoSearch('dota');
+	}
+
+	videoSearch(term) {
+		YTSearch({ key: API_KEY, term: term}, (data) => {
+			this.setState({
+				videos: data,
+				selectedVideo: data[0]
 			});
+		});
 	}
 	//make sure there are no NULL values in the props
 	render() {
 		return (
 			<div>
-				<SearchBar />
+				<SearchBar onSearchTermChanged={term => this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo} />
-				<VideoList videos={this.state.videos} />
+				<VideoList
+					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+					videos={this.state.videos} />
 			</div>
 		);
 	}
