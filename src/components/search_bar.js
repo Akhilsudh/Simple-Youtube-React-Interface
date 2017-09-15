@@ -18,6 +18,7 @@ class SearchBar extends Component {
 	render() {
 		return(
 			<div className="search-bar">
+				<img id="yourContainer" src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_light.svg" />
 				<input
 					value={this.state.term}
 					onChange={(event) => this.onInputChange(event.target.value)} />

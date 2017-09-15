@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+#yourContainer {
+  max-width: 150px;
+  max-height: 50px;
+}
+
 .search-bar input {
   width: 75%;
 }
