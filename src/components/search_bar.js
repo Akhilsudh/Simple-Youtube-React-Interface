@@ -11,9 +11,9 @@ class SearchBar extends Component {
 
 	//This function is rerenderred whenever the state changes
 	render() {
-		return( 
+		return(
 			<div>
-				<input 
+				<input
 					value={this.state.term}
 					onChange={(event) => this.setState({ term: event.target.value})} />
 			</div>
@@ -23,7 +23,7 @@ class SearchBar extends Component {
 
 /*
 const SearchBar = () => {
-	return <input />; 
+	return <input />;
 };
 */
 export default SearchBar;
